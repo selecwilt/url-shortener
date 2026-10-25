@@ -1,10 +1,9 @@
 package com.maksym_solodukhin.Shortener.service;
 
 import com.maksym_solodukhin.Shortener.entity.Link;
+import com.maksym_solodukhin.Shortener.exception.LinkNotFoundException;
 import com.maksym_solodukhin.Shortener.repository.LinkRepository;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.security.SecureRandom;
 
@@ -29,7 +28,7 @@ public class LinkService {
 
     public Link getByCode(String code) {
         return repository.findByShortCode(code)
-            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+            .orElseThrow(() -> new LinkNotFoundException(code));
     }
 
     private String generateUniqueCode() {
