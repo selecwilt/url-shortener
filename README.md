@@ -30,7 +30,7 @@ You don't need to install Maven: the project includes the Maven Wrapper (`mvnw`)
 
 ## Quick start
 
-1. Clone the repository and go to its folder:
+1. Clone the repository and go to it's folder:
 
    ```bash
    git clone <repository-url>
